@@ -1,7 +1,7 @@
 %include "functions.asm"
 
 SECTION .data
-    num dd 2
+    num dd 370
     msg1 db "It is a armstrong number", 0h
     msg2 db "It is not a armstrong number", 0h
 
@@ -28,7 +28,6 @@ _start:
     mov     [digit], ecx
     mov     ecx, 0
     mov     eax, [digit]
-    call    iprintLF
     pop     eax
 
     ;Getting different digits
@@ -44,7 +43,6 @@ seperate:
     mov     ebx, 10
     div     ebx
     push    edx    
-    ; call    iprintLF
     cmp     ecx, 1
     jg      seperate  
     push    eax 
@@ -53,7 +51,6 @@ summing_1:
     pop     edx
     mov     [temp], edx
     mov     eax, edx
-    call    iprintLF
     xor     ecx, ecx
     mov     ecx, [digit]
     call    power_1           ;First digit power 
@@ -62,7 +59,6 @@ power_1:
     dec     ecx
     mov     edx, [temp]
     mul     edx
-    ; call    iprintLF
     cmp     ecx, 1
     jnz     power_1  
 
@@ -72,7 +68,7 @@ power_1:
     pop     edx
     mov     [temp], edx
     mov     eax, edx
-    ; call    iprintLF
+   
     xor     ecx, ecx
     mov     ecx, 3 
 
@@ -80,7 +76,7 @@ power_2:
     dec     ecx
     mov     edx, [temp]
     mul     edx
-    ; call    iprintLF
+   
     cmp     ecx, 1
     jnz     power_2
 
@@ -89,7 +85,7 @@ power_2:
     pop     edx
     mov     [temp], edx
     mov     eax, edx
-    ; call    iprintLF
+    
     xor     ecx, ecx
     mov     ecx, 3 
 
@@ -97,14 +93,14 @@ power_3:
     dec     ecx
     mov     edx, [temp]
     mul     edx
-    ; call    iprintLF
+    
     cmp     ecx, 1
     jnz     power_3
 
     add     [result], eax
 
     mov     eax, [result]
-    call    iprintLF 
+ 
 
     cmp      eax, [num]
     jne      arm_no
