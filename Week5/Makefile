@@ -1,8 +1,16 @@
-all:	say_hello generate 
+.PHONY = all clean
+ 
+NA = nasm
 
+LINKERFLAG = ld -m elf_i386
 
-say_hello:
-	@echo "Yo wuzzup"
+SRCS := %(wildcard *.c)
+BINS := %(SRCS:%.c=%)
 
-generate: 
-	@echo "Creating new files"
+all: ${BINS}
+
+%: %.o
+	@echo "checking.."
+	${LINKERFLAG} $< -o $@
+	
+  
