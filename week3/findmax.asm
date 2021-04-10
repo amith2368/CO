@@ -1,4 +1,3 @@
-
 %include "convascii.asm"
 section .data
 	num1 dd 143
@@ -21,7 +20,6 @@ _start:
 	int   0x80
 
     mov eax, [num1]      ;get the number from buffer
-    call print 
 	
 	mov eax, [num1]
 	cmp eax, [num2]

@@ -11,11 +11,11 @@ _start:
 	mov	ebx, num
 	mov	eax, [ebx + 16]
 	
-auto_inc:
+auto_dec:
 	add 	eax, [ebx + ecx]
 	sub 	ecx, 4
 	cmp	ecx, -4
-	jne	auto_inc
+	jne	auto_dec
 	
 	call	iprintLF
 	call 	quit
